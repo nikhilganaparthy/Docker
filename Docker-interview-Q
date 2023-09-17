@@ -50,6 +50,12 @@
        where the other containers on host also gets impacted with one container.
     -> Resource constraints: if u r running too many containers on a single host, we get issues with resource constraints and the performance goes down and may crash.
 
-12. 
+12. What steps u take to secure containers?
+     compare to VM's docker containers are less secure. VM's has its own networking and completley isolated with other VM.
+     but since containers live in single host, without proper networking, all the containers may get expose just because one container.
+        -> Ensure that networking is configured properly. This is one of the most common reasons for security issues.
+           if possible configure custom bridge network and assign assign them to isolate containers.
+        -> use distro less images with not too many packages as your final image in multi-stage build. so less chance of security isses.
+        -> use utilities like SYNC to scan your container images. 
 
     
