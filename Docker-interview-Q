@@ -56,6 +56,6 @@
         -> Ensure that networking is configured properly. This is one of the most common reasons for security issues.
            if possible configure custom bridge network and assign assign them to isolate containers.
         -> use distro less images with not too many packages as your final image in multi-stage build. so less chance of security isses.
-        -> use utilities like SYNC to scan your container images. 
+        -> use utilities like SYNC to scan your container images before pushing into staging or production env. 
 
     
