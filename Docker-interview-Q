@@ -1,1 +1,55 @@
+1. What is Docker?
+    Docker is an containerization platform which enables developers to build,package the application and its dependencies and deploy and run 
+    them in the conatiners as fast and reliable way.
 
+2. How containers are different from VM's?
+    Containers are light weight in nature because they dont have complete operating system like VM's. containers has very minimal system dependencies
+    and uses system shared libraries only which are required to run your application. VM has its own OS and as OS is very heavy, the image size goes high.
+
+3. What is docker life cycle?
+    Requirement for an application to run in container -> write a docker file -> build the image with file -> push the image in to docker registery -> run container with image.
+
+4. What are docker components?
+    -> Docker client ( docker CLI )
+    -> Docker daemon ( receives all requests of docker commands )
+    -> Docker registery
+
+5. what Difference between Docker COPY and Docker ADD?
+    -> Docker ADD will copy the files from the internet ( URL, S3 bucket )
+    -> Docker COPY will copy the files from host system to container.
+
+6. What is diff between CMD and ENTRYPOINT in docker?
+    -> CLI commands using the docker run command will override the arguments specified using the CMD instruction.
+    -> ENTRYPOINT instruction in the shell form will override additional arguments provided using CLI parameters or even through the CMD commands.
+
+7. What are networking types and what is default?
+    -> default is bridge, but we can change this to host, MacVlan, overlay.
+    -> with bridge, veth or docker0 network is created b/w host and container where container can access host network after doing port mapping.
+    -> In host, we bind the host network with container network where users can directly access the container with host network.
+    -> Overlay network uses to connect multiple hosts with its network and works as a load balance which redirects the user traffic to the nodes.
+
+8. How to isolate the container with networking?
+    we can create our own custom bridge networking for the container and can isolate them with other containers. 
+    The ip addresses and cidr range will be different to default bridge network.
+       " $docker network create secure-network "  -> command to create custom bridge network
+
+9. What is multi-stage build in docker?
+    Multi-stage allows us to build docker containers in multiple stages allowing to copy artifacts from one stage to another.
+
+
+
+10. What are distro less images in docker?
+    when u have lot of packages in a container or in VM, we tend to expose our application to security vulneratbilities. Distro less images contain 
+    only your application and its runtime dependencies with very minimum operating system libraries. they do not contain package managers, shells or
+    any other programs u would expect to find in a standard linux distribution. these are very small and light weight images.
+
+11. What are the real time challenges with docker?
+    -> Docker is a single daemon process which can cause single point of failure. if docker daemon goes down all application goes down.
+       to solve this problem, we have podman which doesnt have daemon.
+    -> Docker daemon runs as a root user which is security threat. any container running as a root user will have security issues 
+       where the other containers on host also gets impacted with one container.
+    -> Resource constraints: if u r running too many containers on a single host, we get issues with resource constraints and the performance goes down and may crash.
+
+12. 
+
+    
