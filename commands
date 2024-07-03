@@ -1,0 +1,4 @@
+docker pull image_name
+docker ps
+docker stop container_name
+docker run image_name -d 
