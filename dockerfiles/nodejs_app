@@ -1,0 +1,12 @@
+# running a node js application inside a docker container
+# install node js and npm in linux
+# https://github.com/N4si/learn_docker.git -> url to clone this project
+
+FROM node:14-alpine         #to use the base image
+WORKDIR /usr/src/app        #setting up the working directory where our app is going to run
+COPY package*.json ./       #copying all the dependencies for node js application from local dir to container
+RUN npm install             #to install all the required dependencies
+COPY . .                    #to copy all the code file from local dir to container dir
+EXPOSE 3000                 #to expose the app with port 3000
+CMD ["npm", "start"]        #to run the application
+
